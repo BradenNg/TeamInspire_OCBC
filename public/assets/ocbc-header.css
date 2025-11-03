@@ -1,0 +1,55 @@
+:root{
+  --ocbc-red: #ff0037;
+  --text: #2c3a47;
+  --muted: #6b7785;
+  --line: #e8ecf1;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif; color:var(--text);}
+
+.left-rail{position:absolute; left:0; top:0; width:10px; height:150px; background:var(--ocbc-red);}
+
+.container{max-width:1200px; margin:0 auto; padding:0 24px 0 34px; /* 10px for rail + 24px */}
+
+.ocbc-header .top-row{display:flex; align-items:center; gap:24px; padding:16px 0 10px;}
+.logo{height:36px; width:auto; display:flex; align-items: center;}
+.logo-wrap{flex:0 0 auto; margin-left: 100px; display: flex; align-items: center;}
+
+.top-nav{display:flex; align-items:center; justify-content:space-between; gap:32px; flex:1 1 auto;}
+.top-nav .context{display:flex; align-items:center; gap:8px; font-size:14px;}
+.muted{color:var(--muted)}
+.context-btn{border:0; background:transparent; color:var(--text); font:inherit; cursor:pointer; padding:4px 6px; border-radius:4px;}
+.context-btn:hover{background:#f6f7f9}
+.context-btn .chev{margin-left:6px; font-size:12px; color:var(--muted)}
+
+.top-nav nav ul.links{list-style:none; padding:0; margin:0; display:flex; gap:24px; font-size:16px;}
+.top-nav nav a{color:var(--text); text-decoration:none}
+.top-nav nav a:hover{color:#000}
+
+/* Divider between rows */
+.ocbc-header{border-bottom:1px solid var(--line);}
+
+/* Main nav */
+.main-nav{display:flex; align-items:center; justify-content:space-between; gap:24px; padding:10px 0; border-top:1px solid var(--line);}
+.main-links{list-style:none; display:flex; gap:28px; padding:0; margin:0; font-size:18px;}
+.main-links a{color:var(--text); text-decoration:none}
+.main-links a:hover{color:#000}
+
+.login{color:var(--ocbc-red); text-decoration:none; font-weight:700}
+.login:hover{opacity:.85}
+
+/* Page filler to show header */
+.hero-placeholder{height:48px; background:linear-gradient(90deg, rgba(228,0,43,.08), rgba(86,61,233,.08));}
+
+/* Responsive tweaks */
+@media (max-width:960px){
+  .top-nav nav ul.links{gap:16px; font-size:15px}
+  .main-links{gap:18px; font-size:16px}
+}
+@media (max-width:720px){
+  .top-nav{flex-wrap:wrap; gap:12px}
+  .main-nav{flex-wrap:wrap}
+  .login{margin-left:auto}
+}

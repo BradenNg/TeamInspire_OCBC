@@ -1,0 +1,42 @@
+/* Layout extracted from inline styles in index.html */
+.header-flex{
+	display:flex;
+	align-items:flex-start; /* was 'left' inline; use flex-start */
+	justify-content:flex-start;
+	height:150px;
+}
+
+.left-rail{
+	width:10px;
+	height:150px;
+	background-color:red;
+}
+
+.logo-container{
+	/* margin-inline for logical sides; also include L/R for broader support */
+	margin-inline:150px;
+	margin-left:150px;
+	margin-right:150px;
+	display:flex;
+	align-items:center;
+}
+
+.context-row{
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+}
+
+.context-row p{
+	margin:0;
+}
+
+.context-row p:first-child{
+	margin-right:8px; /* spacing between 'You are in' and 'Personal Banking ▾' */
+}
+
+.top-links{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
