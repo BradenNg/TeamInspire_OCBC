@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OCBC — Customer Help (Prototype)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/indexTEST2.css" />
+</head>
+<body>
+  <!-- Security banner -->
+  <div class="notice" role="note" data-i18n="banner.security">
+    ⚠️ Security tip: Never share your OTP or passwords. OCBC will never ask for them via phone, chat, or email.
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container bar">
+      <a class="brand" href="#" aria-label="OCBC Home">
+        <img src="./assets/logo_ocbc.png" alt="OCBC Logo" class="logo" />
+        <b class="brand-text"></b>
+        <span class="tag">Prototype</span>
+      </a>
+
+      <nav class="nav">
+        <button class="btn ghost mobile-toggle" id="mobileToggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+        <ul id="mobileMenu">
+          <li><a href="#assistant" data-i18n="nav.help">Help</a></li>
+          <li><a href="#quick" data-i18n="nav.banking">Banking</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="row header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="chip" data-lang="en">EN</button>
+          <button class="chip" data-lang="zh">中文</button>
+        </div>
+        <button id="themeToggle" class="btn ghost" title="Toggle theme">🌓</button>
+        <button class="btn" data-i18n="cta.login">Log in</button>
+        <button class="btn primary" data-i18n="cta.open">Open account</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 data-i18n="hero.title">Smarter support, <span class="accent">without the wait</span>.</h1>
+        <p class="muted" data-i18n="hero.subtitle">
+          Find answers instantly, complete common tasks in a tap, or book a callback — all in one place.
+        </p>
+        <div class="search">
+          <input id="siteSearch" type="search" placeholder="Try: change card limit, overseas activation…" aria-label="Search help and services" />
+          <button class="btn primary" id="searchBtn" data-i18n="hero.search">Search</button>
+        </div>
+
+        <!-- Popular chips -->
+        <div class="row popular-row">
+          <span class="small" data-i18n="hero.popular">Popular:</span>
+          <button class="chip" data-q="Reset Online Banking password" data-i18n="chips.reset">Reset password</button>
+          <button class="chip" data-q="Enable overseas card usage" data-i18n="chips.overseas">Overseas card use</button>
+          <button class="chip" data-q="Report a lost card" data-i18n="chips.lost">Lost card</button>
+        </div>
+      </div>
+
+      <!-- Service status card -->
+      <aside class="card service">
+        <div class="row between">
+          <b data-i18n="status.title">Service status</b>
+          <span class="tag" id="statusTag" data-status="ok" data-i18n="status.ok">All systems normal</span>
+        </div>
+        <div class="small muted" data-i18n="status.channels">Internet/Mobile Banking • FAST/PayNow • Cards</div>
+        <div class="row status-row">
+          <span class="tag small" id="callWaitTag">Avg call wait: 6–8 min</span>
+          <span class="tag small" id="branchWaitTag">Nearest branch wait: ~14 min</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Quick actions -->
+  <section class="section" id="quick">
+    <div class="container">
+      <h2 data-i18n="quick.title">Do it in seconds</h2>
+      <div class="grid qa">
+        <button class="tile" data-action="pay">
+          <div class="icon">💸</div>
+          <div><b data-i18n="qa.pay">Pay bills</b><div class="small muted" data-i18n="qa.paySub">SP, Singtel, IRAS…</div></div>
+        </button>
+        <button class="tile" data-action="transfer">
+          <div class="icon">🔁</div>
+          <div><b data-i18n="qa.transfer">Transfer funds</b><div class="small muted" data-i18n="qa.transferSub">FAST / PayNow</div></div>
+        </button>
+        <button class="tile" data-action="card">
+          <div class="icon">💳</div>
+          <div><b data-i18n="qa.card">Card controls</b><div class="small muted" data-i18n="qa.cardSub">Freeze, limit, overseas</div></div>
+        </button>
+        <button class="tile" data-action="appointment">
+          <div class="icon">📅</div>
+          <div><b data-i18n="qa.book">Book appointment</b><div class="small muted" data-i18n="qa.bookSub">Branch or video</div></div>
+        </button>
+        <button class="tile" data-action="callback" id="openCallback">
+          <div class="icon">📞</div>
+          <div><b data-i18n="qa.callback">Request callback</b><div class="small muted" data-i18n="qa.callbackSub">We’ll call you</div></div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assistant + Popular topics -->
+  <section class="section" id="assistant">
+    <div class="container twocol">
+      <!-- Left: Assistant -->
+      <div class="card">
+        <div class="row between">
+          <h3 class="m0" data-i18n="chat.title">Ask our Smart Assistant</h3>
+          <span class="small muted" data-i18n="chat.handoff">Human handoff available</span>
+        </div>
+        <div class="search">
+          <input id="ask" placeholder="Type a question e.g., 'How to increase transfer limit?'" aria-label="Ask our Smart Assistant" />
+          <button class="btn" id="askBtn" data-i18n="chat.send">Send</button>
+        </div>
+        <div class="chips">
+          <button class="chip" data-q="Change daily card limit" data-i18n="chips.limit">Change card limit</button>
+          <button class="chip" data-q="Open a savings account" data-i18n="chips.open">Open an account</button>
+          <button class="chip" data-q="Report a scam transaction" data-i18n="chips.scam">Report a scam</button>
+          <button class="chip" data-q="How to set up PayNow?" data-i18n="chips.paynow">Set up PayNow</button>
+        </div>
+        <div class="verify">
+          <span class="shield"></span>
+          <span class="small" data-i18n="verify.text">
+            Verified OCBC support: We will never ask for your OTP. In-app callbacks only.
+          </span>
+        </div>
+        <div class="chat-box" id="chat" aria-live="polite">
+          <!-- Messages injected here -->
+        </div>
+
+        <!-- Guided triage micro-flow -->
+        <div class="triage" id="triage" hidden>
+          <div class="row between">
+            <b data-i18n="triage.title">Guided Triage</b>
+            <button class="btn ghost small-btn" id="closeTriage">✕</button>
+          </div>
+          <div class="triage-grid">
+            <div>
+              <label class="step" for="triageCategory" data-i18n="triage.step1">Step 1: Pick a category</label>
+              <select id="triageCategory">
+                <option value="" selected data-i18n="triage.choose">Choose…</option>
+                <option value="card" data-i18n="triage.card">Card</option>
+                <option value="online" data-i18n="triage.online">Online/Mobile Banking</option>
+                <option value="payment" data-i18n="triage.payment">Payments & Transfers</option>
+              </select>
+            </div>
+            <div>
+              <label class="step" for="triageIssue" data-i18n="triage.step2">Step 2: What’s the issue?</label>
+              <select id="triageIssue" disabled>
+                <option value="" selected data-i18n="triage.choose">Choose…</option>
+              </select>
+            </div>
+            <div>
+              <label class="step" data-i18n="triage.step3">Step 3: A few details</label>
+              <div id="triageExtra" class="extra muted small" data-i18n="triage.waiting">Waiting for your selection…</div>
+            </div>
+          </div>
+
+          <!-- Dynamic recommendation -->
+          <div class="card result" id="triageResult" hidden>
+            <div class="row between">
+              <b id="resultTitle" data-i18n="result.title">Recommendation</b>
+              <span class="badge" id="resultType">Fix Online</span>
+            </div>
+            <p class="muted" id="resultText">We’ve matched the fastest path based on your answers.</p>
+            <div class="suggest">
+              <b data-i18n="suggest.title">Self-service suggestions</b>
+              <ul id="suggestList" class="small muted"></ul>
+            </div>
+            <div class="row action-row">
+              <button class="btn primary" id="primaryAction">Continue</button>
+              <button class="btn ghost" id="altAction" data-i18n="result.alt">Book a callback</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Popular topics -->
+      <div class="card">
+        <h3 class="m0" data-i18n="topics.title">Popular topics</h3>
+        <div class="topics">
+          <button class="topic" data-q="Reset Online Banking password" data-i18n="topics.reset">Reset Online Banking password</button>
+          <button class="topic" data-q="Enable overseas card usage" data-i18n="topics.overseas">Enable overseas card usage</button>
+          <button class="topic" data-q="Report a lost card" data-i18n="topics.lost">Report a lost or stolen card</button>
+          <button class="topic" data-q="Dispute a transaction" data-i18n="topics.dispute">Dispute a transaction</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 data-i18n="faq.title">Frequently asked</h2>
+      <div class="faq">
+        <details class="item">
+          <summary data-i18n="faq.q1">How do I request a callback instead of waiting on hold?</summary>
+          <div class="content" data-i18n="faq.a1">
+            Select <b>Request callback</b> under Quick Actions. Choose your preferred time window and topic. We’ll queue it so you don’t have to wait.
+          </div>
+        </details>
+        <details class="item">
+          <summary data-i18n="faq.q2">Can I do everything without logging in?</summary>
+          <div class="content" data-i18n="faq.a2">
+            Many self-serve flows (card freeze, appointment booking, FAQs) are available without login. For account-specific tasks, you’ll sign in securely.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row" style="gap:12px; align-items:center;">
+        <img src="./assets/logo_ocbc.png" alt="" class="logo" />
+        <b>OCBC</b>
+        <span class="tag">Prototype</span>
+      </div>
+      <p class="small" data-i18n="footer.note">
+        This is a non-commercial student prototype for ideation and testing. No real data is used.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Callback modal -->
+  <div class="modal" id="callbackModal" aria-hidden="true" role="dialog" aria-labelledby="cbTitle">
+    <div class="modal-panel">
+      <div class="row between">
+        <h3 id="cbTitle" data-i18n="cb.title">Request a callback</h3>
+        <button class="btn ghost small-btn" id="closeCallback">✕</button>
+      </div>
+      <p class="muted small" id="cbWait">Avg call wait: 6–8 min</p>
+      <div class="formgrid">
+        <label>
+          <span data-i18n="cb.topic">Topic</span>
+          <select id="cbTopic">
+            <option value="card" data-i18n="cb.card">Card</option>
+            <option value="online" data-i18n="cb.online">Online/Mobile Banking</option>
+            <option value="payment" data-i18n="cb.payment">Payments & Transfers</option>
+          </select>
+        </label>
+        <label>
+          <span data-i18n="cb.window">Preferred time window</span>
+          <select id="cbWindow">
+            <option>10:00–12:00</option>
+            <option>12:00–14:00</option>
+            <option>14:00–16:00</option>
+            <option>16:00–18:00</option>
+          </select>
+        </label>
+        <label class="full">
+          <span data-i18n="cb.notes">Notes (optional)</span>
+          <textarea id="cbNotes" rows="3" placeholder="Add any details to help us prepare"></textarea>
+        </label>
+      </div>
+      <div class="verify inline">
+        <span class="shield"></span>
+        <span class="small" data-i18n="verify.text">Verified OCBC support: We will never ask for your OTP. In-app callbacks only.</span>
+      </div>
+      <div class="row end">
+        <button class="btn primary" id="bookCallback" data-i18n="cb.book">Book callback</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/indexTEST2.js"></script>
+</body>
+</html>
