@@ -1,61 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>OCBC Header Mock</title>
-		<link rel="stylesheet" href="assets/ocbc-header.css" />
-	</head>
-	<body>
-		<!-- Left red rail -->
-		<div class="left-rail" aria-hidden="true"></div>
 
-		<!-- Header -->
-		<header class="ocbc-header" role="banner">
-
-			<div class="container">
-                            <div class="logo-wrap">
-                <img src="assets/logo_ocbc.png" alt="OCBC" class="logo" />
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <header>
+            <div class="left-rail"></div>
+            <div class="logo-container">
+                <img src="assets/logo_ocbc.png" width="150">
             </div>
-				<div class="top-row">
-					<div class="top-nav">
-						<div class="context">
-							<span class="muted">You are in</span>
-							<button class="context-btn" aria-haspopup="true" aria-expanded="false">
-								Personal Banking <span class="chev">▾</span>
-							</button>
-						</div>
-						<nav aria-label="Secondary">
-							<ul class="links">
-								<li><a href="#">Premier Banking</a></li>
-								<li><a href="#">Digital Banking</a></li>
-								<li><a href="#">Security</a></li>
-								<li><a href="#">Branches &amp; ATMs</a></li>
-								<li><a href="#">Get help</a></li>
-							</ul>
-						</nav>
-					</div>
-				</div>
+            <div class="context-container">
+                <div class="top-nav">
+                    <div class="current-Bank">
+                        <p>You are in</p>
+                        <button id="bankingToggle" class="dropdown-toggle" aria-expanded="false" aria-controls="topLinks"><span id="bold">Personal Banking ▾</span></button>
+                        <ul type="" class="top-links" id="topLinks" role="menu" aria-labelledby="bankingToggle">
+                            <li>Premier Banking</li>
+                            <li>Premier Private Client</li>
+                            <li>Business Banking</li>
+                            <li>OCBC Group</li>
+                            <li>OCBC Securities</li>
+                        </ul>
+                    </div>
+                    <div class="Others">
+                        <p>Premier Banking</p>
+                        <p>Digital Banking</p>
+                        <p>Security</p>
+                        <p>Branches & ATMS</p>
+                        <p>Get Help</p>
+                    </div>
+                </div>
+                <div>
+                    <nav class="bottom-nav">
+                        <p>Accounts</p>
+                        <p>Cards</p>
+                        <p>Loans</p>
+                        <p>Insurance</p>
+                        <p>Investments</p>
+                        <p>Advisory</p>
+                        <p>More</p>
+                        <p>Login</p>
+                    </nav>
+                </div>
+            </div>
+            <div class="settings_icon">
+                <img src="assets/settings_icon2.png" alt="settings_icon2" width="50">
+            </div>
+        </header>
+        <div class="body">
+            <form action="/search" method="get" class="search_bar">
+                <input type="search" id="search-input" name="q" placeholder="Search for answers">
+            </form>
+        </div>
+        
+        <!-- Added: Help/Support Sections -->
+        <main class="help-sections" aria-label="Help topics and popular questions">
+            <section class="section-container popular-questions" aria-labelledby="popular-questions-title">
+                <h2 id="popular-questions-title" class="section-heading">Popular questions</h2>
+                <div class="link-grid-2">
+                    <ul class="link-list">
+                        <li><a href="#">ATM Card Activations</a></li>
+                        <li><a href="#">Overseas ATM Withdrawal Activation</a></li>
+                        <li><a href="#">Using your ATM/Debit/Credit card overseas</a></li>
+                    </ul>
+                    <ul class="link-list">
+                        <li><a href="#">Revert to Paper Statements</a></li>
+                        <li><a href="#">EasiCredit and Card Waiver</a></li>
+                        <li><a href="#">Special Financial Relief Programme (SFRP) for consumers</a></li>
+                    </ul>
+                </div>
+            </section>
 
-				<nav class="main-nav" aria-label="Primary">
-					<ul class="main-links">
-						<li><a href="#">Accounts</a></li>
-						<li><a href="#">Cards</a></li>
-						<li><a href="#">Loans</a></li>
-						<li><a href="#">Insurance</a></li>
-						<li><a href="#">Investments</a></li>
-						<li><a href="#">Advisory</a></li>
-						<li><a href="#">More</a></li>
-					</ul>
-					<a class="login" href="#">Login</a>
-				</nav>
-			</div>
-		</header>
+            <section class="section-container categories" aria-labelledby="categories-title">
+                <h2 id="categories-title" class="section-heading">General</h2>
 
-		<!-- Page fill so you can see the header spacing -->
-		<main class="page">
-			<section class="hero-placeholder"></section>
-		</main>
-	</body>
-	</html>
+                <div class="category-grid-3">
+                    <article class="category-card" aria-labelledby="cat-general-title">
+                        <h3 id="cat-general-title" class="category-title">General</h3>
+                        <ul class="category-links">
+                            <li><a href="#">Change personal details</a></li>
+                            <li><a href="#">Fees and charges</a></li>
+                            <li><a href="#">OCBC Bank and Branch code</a></li>
+                            <li><a href="#">OCBC Money Lock</a></li>
+                            <li><a href="#">P.O. Box cessation</a></li>
+                        </ul>
+                        <button class="btn-outline">See more</button>
+                    </article>
+
+                    <article class="category-card" aria-labelledby="cat-banking-title">
+                        <h3 id="cat-banking-title" class="category-title">Banking</h3>
+                        <ul class="category-links">
+                            <li><a href="#">Change personal details</a></li>
+                            <li><a href="#">Forgot Access Code / PIN</a></li>
+                            <li><a href="#">Change Access Code / PIN</a></li>
+                            <li><a href="#">Check balances using SMS</a></li>
+                        </ul>
+                        <button class="btn-outline">See more</button>
+                    </article>
+
+                    <article class="category-card" aria-labelledby="cat-payments-title">
+                        <h3 id="cat-payments-title" class="category-title">Payments &amp; Transactions</h3>
+                        <ul class="category-links">
+                            <li><a href="#">FAST</a></li>
+                            <li><a href="#">Pricing guide</a></li>
+                            <li><a href="#">Status of cheque</a></li>
+                            <li><a href="#">Remit money overseas</a></li>
+                        </ul>
+                        <button class="btn-outline">See more</button>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <script src="js/index.js" defer></script>
+    </body>
+</html>

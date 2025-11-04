@@ -49,14 +49,28 @@
                     </nav>
                 </div>
             </div>
-            <div class="settings_icon">
-                <img src="assets/settings_icon2.png" alt="settings_icon2" width="50">
-            </div>
         </header>
         <div class="body">
             <form action="/search" method="get" class="search_bar">
                 <input type="search" id="search-input" name="q" placeholder="Search for answers">
             </form>
+            <div class="settings_icon">
+                <img src="assets/settings_icon2.png" alt="settings_icon2" width="50">
+            </div>
+            <!-- Settings popover (hidden by default) -->
+            <div id="settingsPopover" class="settings-popover" role="dialog" aria-modal="false" aria-labelledby="settingsTitle" hidden>
+                <div class="settings-content">
+                    <button id="toggleTheme" class="pill-btn" aria-pressed="false">Dark theme</button>
+                    <span class="settings-divider" aria-hidden="true"></span>
+                    <label for="languageSelect" class="sr-only" id="settingsTitle">Change language</label>
+                    <select id="languageSelect" class="pill-select" aria-label="Change language">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="ms">Bahasa Melayu</option>
+                        <option value="ta">தமிழ்</option>
+                    </select>
+                </div>
+            </div>
         </div>
         <script src="js/index.js" defer></script>
     </body>
