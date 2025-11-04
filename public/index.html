@@ -11,26 +11,53 @@
     </head>
     <body>
         <header>
-            <div class="header-flex">
-                <div class="left-rail"></div>
-                <div class="logo-container">
-                    <img src="assets/logo_ocbc.png" alt="OCBC logo" width="200">
-                </div>
-                <div>
-                    <div class="context-row">
+            <div class="left-rail"></div>
+            <div class="logo-container">
+                <img src="assets/logo_ocbc.png" width="150">
+            </div>
+            <div class="context-container">
+                <div class="top-nav">
+                    <div class="current-Bank">
                         <p>You are in</p>
-                        <p>Personal Banking ▾</p>
-                        <ul class="top-links">
-                            <li><a href="#">Premier Banking</a></li>
-                            <li><a href="#">Digital Banking</a></li>
-                            <li><a href="#">Security</a></li>
-                            <li><a href="#">Branches & ATMs</a></li>
-                            <li><a href="#">Get help</a></li>
+                        <button id="bankingToggle" class="dropdown-toggle" aria-expanded="false" aria-controls="topLinks"><span id="bold">Personal Banking ▾</span></button>
+                        <ul type="" class="top-links" id="topLinks" role="menu" aria-labelledby="bankingToggle">
+                            <li>Premier Banking</li>
+                            <li>Premier Private Client</li>
+                            <li>Business Banking</li>
+                            <li>OCBC Group</li>
+                            <li>OCBC Securities</li>
                         </ul>
                     </div>
+                    <div class="Others">
+                        <p>Premier Banking</p>
+                        <p>Digital Banking</p>
+                        <p>Security</p>
+                        <p>Branches & ATMS</p>
+                        <p>Get Help</p>
+                    </div>
+                </div>
+                <div>
+                    <nav class="bottom-nav">
+                        <p>Accounts</p>
+                        <p>Cards</p>
+                        <p>Loans</p>
+                        <p>Insurance</p>
+                        <p>Investments</p>
+                        <p>Advisory</p>
+                        <p>More</p>
+                        <p>Login</p>
+                    </nav>
                 </div>
             </div>
+            <div class="settings_icon">
+                <img src="assets/settings_icon2.png" alt="settings_icon2" width="50">
+            </div>
         </header>
-        <script src="" async defer></script>
+        <div class="body">
+            <form action="/search" method="get" class="search_bar">
+                <input type="search" id="search-input" name="q" placeholder="Search for answers">
+            </form>
+        </div>
+        <script src="js/index.js" defer></script>
     </body>
 </html>
