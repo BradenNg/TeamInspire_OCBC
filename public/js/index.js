@@ -92,6 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
   }
+  
+  toggleThemeBtn.addEventListener('click', function() {
+    if (toggleThemeBtn.textContent === 'Dark Mode') {
+      toggleThemeBtn.textContent = 'Light Mode';
+    } else {
+      toggleThemeBtn.textContent = 'Dark Mode';
+    }
+  });
 
   // ===== Language switch =====
   const savedLang = localStorage.getItem('lang');

@@ -1,14 +1,17 @@
 /* Header */
 header{
+	width: 100%;
+	position: fixed;
 	display: flex;
 	align-items: center;
 	background-color:rgb(243, 243, 243);
 	box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
-	
+	z-index: 1000;
 }
 
 body{
-	margin: 0
+	margin: 0;
+	height:100CM;
 }
 .left-rail{
 	width:10px;
@@ -35,6 +38,10 @@ body{
 	font-size: 16px;
 	color: #3d525d;
 }
+.context-container a{
+	text-decoration: none;
+	color: #3d525d;
+}
 
 .top-nav {
 	display: flex;
@@ -50,8 +57,8 @@ body{
 .bottom-nav{
 	display: flex;
 	align-items: center;
-	padding-top: 15px;
-	padding-bottom: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	justify-content: space-between;
 	width: 100%;
 }
@@ -99,6 +106,7 @@ body{
 .top-links.open{ display: block; }
 
 .top-links li{
+	text-decoration: none;
 	padding: 10px 16px;
 	color: #3d525d;
 	white-space: nowrap;
@@ -123,11 +131,98 @@ body{
 
 /*Body*/
 .body{
-	margin-top: 1cm;
-    width:100%;
+	margin-top: 150px;
+	width: 100%;
     height:100%;
-	z-index:1000;
-	position: fixed;
+	position:absolute;
+}
+.search_bg_image{
+	position: relative;
+	display: block;
+}
+
+.search_bg_image img{
+	display: block;
+	width: 100%;
+	height: 600px;
+	object-fit:cover;            
+	filter: brightness(50%);
+}
+
+.search_bar{
+	position: absolute;   
+	inset: 0;                   
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	filter: none;
+	height: auto;
+	border-radius: 100px;
+	z-index: 100;
+	padding: 0 16px;
+	background: transparent;
+}
+
+.search_bar input[type="search"],
+.search_bar #search-input{
+	width: 60%;
+	max-width: 640px;
+	min-width: 280px;
+	padding: 12px 18px;
+	border: 1px solid #c9c9c9;
+	border-radius: 1cm;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	font-size: 16px;
+	outline: none;
+}
+
+.search_bar input[type="search"]::placeholder{
+	color: #9aa0a6;
+}
+
+.search_bar input[type="search"]:focus{
+	border-color: #e0d8d9;
+	box-shadow: 4px 3px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.categories {
+	display: flex;
+	background-color: #ededed;
+	justify-content: center;
+}
+.categories_icons{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 600;
+	font-size: 18px;
+	color: #3d525d;
+	padding-top: 20px;
+	padding-inline: 50px;
+	cursor: pointer;
+}
+
+.categories_icons:hover{
+	background-color: #d6d6d6;
+	border-bottom: 1px solid red;
+}
+.categories_icons img{
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+.categories_names{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	justify-content: space-evenly;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 600;
+	font-size: 18px;
+	color: #3d525d;
+
 }
 .settings_icon{
 	position: fixed;
@@ -141,16 +236,59 @@ body{
 	cursor: pointer;
 }
 
+.top-enquiries-section p#title{
+	top: 180px;
+	margin-top: 100px;
+	width: 100%;
+	text-align: center;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: bold;
+	font-size: 36px;
+	color: #3d525d;
+}
+
+.top-enquiries-link{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.top-enquiries-link li{
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	width: 200%;
+	font-size: large;
+	list-style-type:none;
+	margin:8px 0 0 0;
+	padding:15px 20px;
+	display: flex;
+	justify-self: center;
+	cursor: pointer;
+}
+.top-enquiries-link p#expand{
+	margin-left: auto;
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.top-enquiries-link a{
+	text-decoration: none;
+	color: #3d525d;
+	font-weight: 700;
+	margin: 4px 0;
+}
+
 /* Settings popover (oval) */
 .settings-popover[hidden]{ display:none !important; }
 .settings-popover{
 	position: fixed;
 	right: 24px;
-	bottom: 90px; /* sit above the icon */
+	bottom: 90px;
 	background: #ffffff;
 	border: 1px solid #e6e6e6;
 	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-	border-radius: 9999px; /* oval */
+	border-radius: 9999px;
 	padding: 10px 14px;
 	z-index: 2100;
 }
@@ -162,19 +300,18 @@ body{
 }
 
 .pill-btn{
-	background: #f3f3f3;
+	background: #000000;
 	border: 1px solid #e1e1e1;
 	border-radius: 9999px;
 	padding: 8px 14px;
 	font: inherit;
-	color: #3d525d;
+	color: #ffffff;
 	cursor: pointer;
 }
 
 .pill-btn[aria-pressed="true"]{
-	background: #0b5be1;
-	color: #fff;
-	border-color: #0b5be1;
+	background: #ffffff;
+	color: #000000;
 }
 
 .pill-select{
@@ -200,6 +337,16 @@ body{
 	border: 0;
 }
 
+footer{
+	text-align: center;
+	padding: 10px 0;
+	background-color: #f3f3f3;
+	color: #3d525d;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	bottom: 0;
+	width: 100%;
+}
+
 /* Dark theme basics */
 body.dark{
 	background-color: #0f1113;
@@ -210,40 +357,57 @@ body.dark header{
 	background-color: #1a1f24;
 	box-shadow: 2px 3px 5px rgba(0,0,0,0.5);
 }
-
+body.dark .context-container{ color: #ffffff;}
+body.dark .context-container a{ color: #ffffff; }
 body.dark .top-links{ background:#222; border-color:#333; }
 body.dark .top-links li{ color:#e9edf1; }
 body.dark .top-links li:hover{ background:#2a2f35; }
 body.dark .link-list a,
 body.dark .category-links a{ color:#6ea8ff; }
-.search_bar{
+.dark.search_bar{
 	display: flex;
 	justify-content: center;
 	height: 1.2cm;
 	border-radius: 100px;
 }
 
-.search_bar input[type="search"],
-.search_bar #search-input{
+.dark .search_bar input[type="search"],
+.dark .search_bar #search-input{
 	width: 60%;
 	max-width: 640px;
 	min-width: 280px;
 	padding: 12px 18px;
 	border: 1px solid #c9c9c9;
 	border-radius: 1cm;
-	background-color: #ffffff;
+	background-color: #2A2D2F;
 	box-sizing: border-box;
 	font-size: 16px;
 	outline: none;
+	color: #ffffff;
 }
 
-.search_bar input[type="search"]::placeholder{
+.dark .search_bar input[type="search"]::placeholder{
 	color: #9aa0a6;
 }
 
-.search_bar input[type="search"]:focus{
+.dark .search_bar input[type="search"]:focus{
 	border-color: #e0d8d9;
 	box-shadow: 4px 3px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dark .top-enquiries{
+	color: #ffffff;
+}
+.dark .settings-popover{
+	position: fixed;
+	right: 24px;
+	bottom: 90px; /* sit above the icon */
+	background: #1a1f24;
+	border: 1px solid #e6e6e6;
+	box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+	border-radius: 9999px; /* oval */
+	padding: 10px 14px;
+	z-index: 2100;
 }
 
 /* ========== Help/Support sections (added) ========== */

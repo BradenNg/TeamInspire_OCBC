@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -21,46 +20,99 @@
                         <p>You are in</p>
                         <button id="bankingToggle" class="dropdown-toggle" aria-expanded="false" aria-controls="topLinks"><span id="bold">Personal Banking ▾</span></button>
                         <ul type="" class="top-links" id="topLinks" role="menu" aria-labelledby="bankingToggle">
-                            <li>Premier Banking</li>
-                            <li>Premier Private Client</li>
-                            <li>Business Banking</li>
-                            <li>OCBC Group</li>
-                            <li>OCBC Securities</li>
+                            <li><a href="#">Personal Banking</a></li>
+                            <li><a href="#">Premier Private Client</a></li>
+                            <li><a href="#">Business Banking</a></li>
+                            <li><a href="#">OCBC Group</a></li>
+                            <li><a href="#">OCBC Securities</a></li>
                         </ul>
                     </div>
                     <div class="Others">
-                        <p>Premier Banking</p>
-                        <p>Digital Banking</p>
-                        <p>Security</p>
-                        <p>Branches & ATMS</p>
-                        <p>Get Help</p>
+                        <p><a href="#">Premier Banking</a></p>
+                        <p><a href="#">Digital Banking</a></p>
+                        <p><a href="#">Security</a></p>
+                        <p><a href="#">Branches & ATMS</a></p>
+                        <p><a href="#">Get Help</a></p>
                     </div>
                 </div>
                 <div>
                     <nav class="bottom-nav">
-                        <p>Accounts</p>
-                        <p>Cards</p>
-                        <p>Loans</p>
-                        <p>Insurance</p>
-                        <p>Investments</p>
-                        <p>Advisory</p>
-                        <p>More</p>
-                        <p>Login</p>
+                        <p><a href="">Accounts</a></p>
+                        <p><a href="">Cards</a></p>
+                        <p><a href="">Loans</a></p>
+                        <p><a href="">Insurance</a></p>
+                        <p><a href="">Investments</a></p>
+                        <p><a href="">Advisory</a></p>
+                        <p><a href="">More</a></p>
+                        <p><a href="">Login</a></p>
                     </nav>
                 </div>
             </div>
         </header>
         <div class="body">
-            <form action="/search" method="get" class="search_bar">
-                <input type="search" id="search-input" name="q" placeholder="Search for answers">
-            </form>
+            <div class="search_bg_image">
+                <img src="assets/ocbc_bg.png" alt="ocbc_bg" width="100%" height="300px">
+                <form action="/search" method="get" class="search_bar">
+                    <input type="search" id="search-input" name="q" placeholder="Search for answers">
+                </form>
+            </div>
+            <div class="categories">
+                <div  class="categories_icons">
+                    <img src="assets/account_icon2.png" alt="account_icon">
+                    <p>Accounts</p>
+                </div>
+                <div class="categories_icons">
+                    <img src="assets/credit_card_icon2.png" alt="card_icon">
+                    <p>Cards</p>
+                </div>
+                <div class="categories_icons">
+                    <img src="assets/loan_icon2.png" alt="loan_icon">
+                    <p>Loans</p>
+                </div>
+                <div class="categories_icons">
+                    <img src="assets/insurance_icon2.png" alt="insurance_icon">
+                    <p>Insurance</p>
+                </div>
+                <div class="categories_icons">
+                    <img src="assets/investment_icon2.png" alt="investment_icon">
+                    <p>Investments</p>
+                </div>
+            </div>
+            <div class="top-enquiries-section">
+                <p id="title">TOP ENQUIRIES</p>
+                <div class="top-enquiries-link">
+                    <ul>
+                        <li><a href="#">OCBC Digital Login Credentials</a><p id="expand">+</p></li>
+                        <li><a href="#">OCBC OneToken</a><p id="expand">+</p></li>
+                        <li><a href="#">ATM Card Activation</a><p id="expand">+</p></li>
+                        <li><a href="#">Overseas ATM Withdrawal Activation</a><p id="expand">+</p></li>
+                        <li><a href="#">EasiCredit and Card Waiver</a><p id="expand">+</p></li>
+                        <li><a href="#">Credit and Debit Card Activation</a><p id="expand">+</p></li>
+                    </ul>
+                </div>
+                <p id="title">Frequently Asked Questions</p>
+                                <div class="top-enquiries-link">
+                    <ul>
+                        <li><a href="#">OCBC Digital Login Credentials</a><p id="expand">+</p></li>
+                        <li><a href="#">OCBC OneToken</a><p id="expand">+</p></li>
+                        <li><a href="#">ATM Card Activation</a><p id="expand">+</p></li>
+                        <li><a href="#">Overseas ATM Withdrawal Activation</a><p id="expand">+</p></li>
+                        <li><a href="#">EasiCredit and Card Waiver</a><p id="expand">+</p></li>
+                        <li><a href="#">Credit and Debit Card Activation</a><p id="expand">+</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <footer>
             <div class="settings_icon">
                 <img src="assets/settings_icon2.png" alt="settings_icon2" width="50">
             </div>
-            <!-- Settings popover (hidden by default) -->
             <div id="settingsPopover" class="settings-popover" role="dialog" aria-modal="false" aria-labelledby="settingsTitle" hidden>
                 <div class="settings-content">
-                    <button id="toggleTheme" class="pill-btn" aria-pressed="false">Dark theme</button>
+                    <button id="toggleTheme" class="pill-btn" aria-pressed="false">Dark Mode</button>
                     <span class="settings-divider" aria-hidden="true"></span>
                     <label for="languageSelect" class="sr-only" id="settingsTitle">Change language</label>
                     <select id="languageSelect" class="pill-select" aria-label="Change language">
@@ -71,7 +123,11 @@
                     </select>
                 </div>
             </div>
-        </div>
+            <div>
+
+            </div>
+            <p>&copy; 2024 OCBC Bank. All rights reserved.</p>
+        </footer>
         <script src="js/index.js" defer></script>
     </body>
 </html>
