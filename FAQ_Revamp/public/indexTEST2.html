@@ -20,7 +20,7 @@
     <div class="container bar">
       <a class="brand" href="#" aria-label="OCBC Home">
         <img src="./assets/logo_ocbc.png" alt="OCBC Logo" class="logo" />
-        <b class="brand-text"></b>
+        <b class="brand-text">OCBC</b>
         <span class="tag">Prototype</span>
       </a>
 
@@ -45,20 +45,24 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Hero with background image -->
+  <section class="hero hero-with-bg">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+
     <div class="container hero-grid">
       <div class="hero-copy">
         <h1 data-i18n="hero.title">Smarter support, <span class="accent">without the wait</span>.</h1>
         <p class="muted" data-i18n="hero.subtitle">
-          Find answers instantly, complete common tasks in a tap, or book a callback — all in one place.
+          Find answers instantly, complete common tasks in a tap, or book a callback all in one place.
         </p>
-        <div class="search">
-          <input id="siteSearch" type="search" placeholder="Try: change card limit, overseas activation…" aria-label="Search help and services" />
+
+        <!-- longer, more obvious search -->
+        <div class="search search-long">
+          <input id="siteSearch" type="search" placeholder="Try: change card limit, overseas activation, reset password" aria-label="Search help and services" />
           <button class="btn primary" id="searchBtn" data-i18n="hero.search">Search</button>
         </div>
 
-        <!-- Popular chips -->
         <div class="row popular-row">
           <span class="small" data-i18n="hero.popular">Popular:</span>
           <button class="chip" data-q="Reset Online Banking password" data-i18n="chips.reset">Reset password</button>
@@ -67,16 +71,19 @@
         </div>
       </div>
 
-      <!-- Service status card -->
-      <aside class="card service">
-        <div class="row between">
-          <b data-i18n="status.title">Service status</b>
-          <span class="tag" id="statusTag" data-status="ok" data-i18n="status.ok">All systems normal</span>
+      <!-- Bigger, more obvious Service status -->
+      <aside class="card service service-emph">
+        <div class="service-head">
+          <div class="row">
+            <span class="svc-dot"></span>
+            <b data-i18n="status.title">Service status</b>
+          </div>
+          <span class="tag svc-tag" id="statusTag" data-status="ok" data-i18n="status.ok">All systems normal</span>
         </div>
         <div class="small muted" data-i18n="status.channels">Internet/Mobile Banking • FAST/PayNow • Cards</div>
         <div class="row status-row">
-          <span class="tag small" id="callWaitTag">Avg call wait: 6–8 min</span>
-          <span class="tag small" id="branchWaitTag">Nearest branch wait: ~14 min</span>
+          <span class="pill" id="callWaitTag">Avg call wait: 6–8 min</span>
+          <span class="pill" id="branchWaitTag">Nearest branch wait: ~14 min</span>
         </div>
       </aside>
     </div>
@@ -105,7 +112,7 @@
         </button>
         <button class="tile" data-action="callback" id="openCallback">
           <div class="icon">📞</div>
-          <div><b data-i18n="qa.callback">Request callback</b><div class="small muted" data-i18n="qa.callbackSub">We’ll call you</div></div>
+          <div><b data-i18n="qa.callback">Request callback</b><div class="small muted" data-i18n="qa.callbackSub">We will call you</div></div>
         </button>
       </div>
     </div>
@@ -121,7 +128,7 @@
           <span class="small muted" data-i18n="chat.handoff">Human handoff available</span>
         </div>
         <div class="search">
-          <input id="ask" placeholder="Type a question e.g., 'How to increase transfer limit?'" aria-label="Ask our Smart Assistant" />
+          <input id="ask" placeholder="Type a question e.g., How to increase transfer limit?" aria-label="Ask our Smart Assistant" />
           <button class="btn" id="askBtn" data-i18n="chat.send">Send</button>
         </div>
         <div class="chips">
@@ -133,14 +140,12 @@
         <div class="verify">
           <span class="shield"></span>
           <span class="small" data-i18n="verify.text">
-            Verified OCBC support: We will never ask for your OTP. In-app callbacks only.
+            Verified OCBC support. We will never ask for your OTP. In app callbacks only.
           </span>
         </div>
-        <div class="chat-box" id="chat" aria-live="polite">
-          <!-- Messages injected here -->
-        </div>
+        <div class="chat-box" id="chat" aria-live="polite"></div>
 
-        <!-- Guided triage micro-flow -->
+        <!-- Guided triage -->
         <div class="triage" id="triage" hidden>
           <div class="row between">
             <b data-i18n="triage.title">Guided Triage</b>
@@ -157,7 +162,7 @@
               </select>
             </div>
             <div>
-              <label class="step" for="triageIssue" data-i18n="triage.step2">Step 2: What’s the issue?</label>
+              <label class="step" for="triageIssue" data-i18n="triage.step2">Step 2: What is the issue</label>
               <select id="triageIssue" disabled>
                 <option value="" selected data-i18n="triage.choose">Choose…</option>
               </select>
@@ -168,15 +173,14 @@
             </div>
           </div>
 
-          <!-- Dynamic recommendation -->
           <div class="card result" id="triageResult" hidden>
             <div class="row between">
               <b id="resultTitle" data-i18n="result.title">Recommendation</b>
               <span class="badge" id="resultType">Fix Online</span>
             </div>
-            <p class="muted" id="resultText">We’ve matched the fastest path based on your answers.</p>
+            <p class="muted" id="resultText">We matched the fastest path based on your answers.</p>
             <div class="suggest">
-              <b data-i18n="suggest.title">Self-service suggestions</b>
+              <b data-i18n="suggest.title">Self service suggestions</b>
               <ul id="suggestList" class="small muted"></ul>
             </div>
             <div class="row action-row">
@@ -206,15 +210,15 @@
       <h2 data-i18n="faq.title">Frequently asked</h2>
       <div class="faq">
         <details class="item">
-          <summary data-i18n="faq.q1">How do I request a callback instead of waiting on hold?</summary>
+          <summary data-i18n="faq.q1">How do I request a callback instead of waiting on hold</summary>
           <div class="content" data-i18n="faq.a1">
-            Select <b>Request callback</b> under Quick Actions. Choose your preferred time window and topic. We’ll queue it so you don’t have to wait.
+            Select <b>Request callback</b> under Quick Actions. Choose your preferred time window and topic. We will queue it so you do not have to wait.
           </div>
         </details>
         <details class="item">
-          <summary data-i18n="faq.q2">Can I do everything without logging in?</summary>
+          <summary data-i18n="faq.q2">Can I do everything without logging in</summary>
           <div class="content" data-i18n="faq.a2">
-            Many self-serve flows (card freeze, appointment booking, FAQs) are available without login. For account-specific tasks, you’ll sign in securely.
+            Many self serve flows are available without login. For account specific tasks you will sign in securely.
           </div>
         </details>
       </div>
@@ -230,7 +234,7 @@
         <span class="tag">Prototype</span>
       </div>
       <p class="small" data-i18n="footer.note">
-        This is a non-commercial student prototype for ideation and testing. No real data is used.
+        This is a non commercial student prototype for ideation and testing. No real data is used.
       </p>
     </div>
   </footer>
@@ -262,19 +266,26 @@
           </select>
         </label>
         <label class="full">
-          <span data-i18n="cb.notes">Notes (optional)</span>
+          <span data-i18n="cb.notes">Notes optional</span>
           <textarea id="cbNotes" rows="3" placeholder="Add any details to help us prepare"></textarea>
         </label>
       </div>
       <div class="verify inline">
         <span class="shield"></span>
-        <span class="small" data-i18n="verify.text">Verified OCBC support: We will never ask for your OTP. In-app callbacks only.</span>
+        <span class="small" data-i18n="verify.text">Verified OCBC support. We will never ask for your OTP. In app callbacks only.</span>
       </div>
       <div class="row end">
         <button class="btn primary" id="bookCallback" data-i18n="cb.book">Book callback</button>
       </div>
     </div>
   </div>
+
+  <!-- Floating chatbot button -->
+  <button id="chatFab" class="fab-chat" aria-label="Open OCBC Assistant">
+    <span class="fab-icon">💬</span>
+    <span class="fab-text">Chat with OCBC Assistant</span>
+    <span class="fab-live">Live</span>
+  </button>
 
   <script src="./js/indexTEST2.js"></script>
 </body>

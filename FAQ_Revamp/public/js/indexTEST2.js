@@ -1,18 +1,18 @@
-// ---------- Helpers ----------
-const $ = (s, r=document) => r.querySelector(s);
+// Helpers
+const $  = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => [...r.querySelectorAll(s)];
 
-// ---------- Theme toggle (persist) ----------
+// Theme toggle
 const root = document.documentElement;
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) root.setAttribute('data-theme', savedTheme);
-$('#themeToggle').addEventListener('click', () => {
+$('#themeToggle')?.addEventListener('click', () => {
   const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   root.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
 });
 
-// ---------- Mobile nav ----------
+// Mobile nav
 $('#mobileToggle')?.addEventListener('click', () => {
   const m = $('#mobileMenu');
   const open = getComputedStyle(m).display !== 'none';
@@ -20,7 +20,7 @@ $('#mobileToggle')?.addEventListener('click', () => {
   $('#mobileToggle').setAttribute('aria-expanded', String(!open));
 });
 
-// ---------- I18N ----------
+// ---------------- I18N full dictionary ----------------
 const i18n = {
   current: 'en',
   dict: {
@@ -29,7 +29,7 @@ const i18n = {
       "nav.help":"Help","nav.banking":"Banking","nav.faq":"FAQ",
       "cta.login":"Log in","cta.open":"Open account",
       "hero.title":"Smarter support, <span class='accent'>without the wait</span>.",
-      "hero.subtitle":"Find answers instantly, complete common tasks in a tap, or book a callback — all in one place.",
+      "hero.subtitle":"Find answers instantly, complete common tasks in a tap, or book a callback all in one place.",
       "hero.search":"Search","hero.popular":"Popular:",
       "chips.reset":"Reset password","chips.overseas":"Overseas card use","chips.lost":"Lost card",
       "chips.limit":"Change card limit","chips.open":"Open an account","chips.scam":"Report a scam","chips.paynow":"Set up PayNow",
@@ -37,77 +37,76 @@ const i18n = {
       "quick.title":"Do it in seconds",
       "qa.pay":"Pay bills","qa.paySub":"SP, Singtel, IRAS…","qa.transfer":"Transfer funds","qa.transferSub":"FAST / PayNow",
       "qa.card":"Card controls","qa.cardSub":"Freeze, limit, overseas","qa.book":"Book appointment","qa.bookSub":"Branch or video",
-      "qa.callback":"Request callback","qa.callbackSub":"We’ll call you",
+      "qa.callback":"Request callback","qa.callbackSub":"We will call you",
       "chat.title":"Ask our Smart Assistant","chat.handoff":"Human handoff available","chat.send":"Send",
-      "verify.text":"Verified OCBC support: We will never ask for your OTP. In-app callbacks only.",
-      "triage.title":"Guided Triage","triage.step1":"Step 1: Pick a category","triage.step2":"Step 2: What’s the issue?","triage.step3":"Step 3: A few details",
-      "triage.choose":"Choose…","triage.card":"Card","triage.online":"Online/Mobile Banking","triage.payment":"Payments & Transfers","triage.waiting":"Waiting for your selection…","triage.ready":"Great — ready to proceed.",
-      "result.title":"Recommendation","result.alt":"Book a callback","suggest.title":"Self-service suggestions",
+      "verify.text":"Verified OCBC support. We will never ask for your OTP. In app callbacks only.",
+      "triage.title":"Guided Triage","triage.step1":"Step 1: Pick a category","triage.step2":"Step 2: What is the issue","triage.step3":"Step 3: A few details",
+      "triage.choose":"Choose…","triage.card":"Card","triage.online":"Online/Mobile Banking","triage.payment":"Payments & Transfers","triage.waiting":"Waiting for your selection…","triage.ready":"Great, ready to proceed.",
+      "result.title":"Recommendation","result.alt":"Book a callback","suggest.title":"Self service suggestions",
       "topics.title":"Popular topics","topics.reset":"Reset Online Banking password","topics.overseas":"Enable overseas card usage","topics.lost":"Report a lost or stolen card","topics.dispute":"Dispute a transaction",
-      "faq.title":"Frequently asked","faq.q1":"How do I request a callback instead of waiting on hold?","faq.a1":"Select <b>Request callback</b> under Quick Actions. Choose your preferred time window and topic. We’ll queue it so you don’t have to wait.",
-      "faq.q2":"Can I do everything without logging in?","faq.a2":"Many self-serve flows (card freeze, appointment booking, FAQs) are available without login. For account-specific tasks, you’ll sign in securely.",
-      "footer.note":"This is a non-commercial student prototype for ideation and testing. No real data is used.",
-      "cb.title":"Request a callback","cb.topic":"Topic","cb.window":"Preferred time window","cb.notes":"Notes (optional)","cb.card":"Card","cb.online":"Online/Mobile Banking","cb.payment":"Payments & Transfers","cb.book":"Book callback"
+      "faq.title":"Frequently asked","faq.q1":"How do I request a callback instead of waiting on hold","faq.a1":"Select <b>Request callback</b> under Quick Actions. Choose your preferred time window and topic. We will queue it so you do not have to wait.",
+      "faq.q2":"Can I do everything without logging in","faq.a2":"Many self serve flows are available without login. For account specific tasks you will sign in securely.",
+      "footer.note":"This is a non commercial student prototype for ideation and testing. No real data is used.",
+      "cb.title":"Request a callback","cb.topic":"Topic","cb.window":"Preferred time window","cb.notes":"Notes optional","cb.card":"Card","cb.online":"Online/Mobile Banking","cb.payment":"Payments & Transfers","cb.book":"Book callback"
     },
     zh: {
       "banner.security":"⚠️ 安全提示：请勿分享一次性密码或登录信息。OCBC 不会通过电话、聊天或电邮索取这些资料。",
       "nav.help":"协助","nav.banking":"银行服务","nav.faq":"常见问题",
       "cta.login":"登录","cta.open":"开立账户",
-      "hero.title":"更聪明的客服，<span class='accent'>无需久等</span>。","hero.subtitle":"即时获得答案，一键完成常用操作，或预约回电——一站式完成。","hero.search":"搜索","hero.popular":"热门：",
+      "hero.title":"更聪明的客服，<span class='accent'>无需久等</span>。","hero.subtitle":"即时获得答案，一键完成常用操作，或预约回电，一站式完成。","hero.search":"搜索","hero.popular":"热门：",
       "chips.reset":"重置密码","chips.overseas":"海外用卡","chips.lost":"挂失","chips.limit":"更改卡额度","chips.open":"开立账户","chips.scam":"报告诈骗","chips.paynow":"开通 PayNow",
       "status.title":"服务状态","status.ok":"系统一切正常","status.channels":"网银/手机银行 • FAST/PayNow • 卡片",
       "quick.title":"几秒搞定","qa.pay":"缴付账单","qa.paySub":"电力/电话/税务…","qa.transfer":"转账汇款","qa.transferSub":"FAST / PayNow","qa.card":"卡片管控","qa.cardSub":"挂失、额度、海外","qa.book":"预约服务","qa.bookSub":"网点或视频",
       "qa.callback":"请求回电","qa.callbackSub":"由我们致电",
       "chat.title":"智能助理","chat.handoff":"可转接人工","chat.send":"发送",
-      "verify.text":"已验证的 OCBC 支援：我们不会索取 OTP。仅通过应用内回电联系。",
-      "triage.title":"引导式分流","triage.step1":"步骤一：选择类别","triage.step2":"步骤二：问题类型","triage.step3":"步骤三：补充信息","triage.choose":"请选择…","triage.card":"银行卡","triage.online":"网银/手机银行","triage.payment":"付款与转账","triage.waiting":"等待你的选择…","triage.ready":"很好——可以继续。",
+      "verify.text":"已验证的 OCBC 支援。我们不会索取 OTP。仅通过应用内回电联系。",
+      "triage.title":"引导式分流","triage.step1":"步骤一：选择类别","triage.step2":"步骤二：问题类型","triage.step3":"步骤三：补充信息","triage.choose":"请选择…","triage.card":"银行卡","triage.online":"网银/手机银行","triage.payment":"付款与转账","triage.waiting":"等待你的选择…","triage.ready":"很好，可以继续。",
       "result.title":"建议","result.alt":"预约回电","suggest.title":"自助建议",
-      "topics.title":"热门主题","topics.reset":"重置网银密码","topics.overseas":"启用海外用卡","topics.lost":"挂失/被盗","topics.dispute":"交易争议",
-      "faq.title":"常见问题","faq.q1":"如何请求回电而不是等待？","faq.a1":"在“快捷操作”选择<b>请求回电</b>，设定时间与主题，我们会排队处理，你无需在线等待。","faq.q2":"不登录能完成所有操作吗？","faq.a2":"许多自助流程（如挂失、预约、FAQ）无需登录；涉及账户信息的操作将进行安全登录。",
+      "topics.title":"热门主题","topics.reset":"重置网银密码","topics.overseas":"启用海外用卡","topics.lost":"挂失或被盗","topics.dispute":"交易争议",
+      "faq.title":"常见问题","faq.q1":"如何请求回电以避免等待","faq.a1":"在“快捷操作”选择<b>请求回电</b>，设定时间与主题，我们会排队处理，你无需在线等待。","faq.q2":"不登录能完成所有操作吗","faq.a2":"许多自助流程无需登录；涉及账户信息的操作将进行安全登录。",
       "footer.note":"本页面为非商业学生原型，仅用于创意与测试，不涉及真实数据。",
-      "cb.title":"请求回电","cb.topic":"主题","cb.window":"偏好时段","cb.notes":"备注（可选）","cb.card":"银行卡","cb.online":"网银/手机银行","cb.payment":"付款与转账","cb.book":"预约回电"
+      "cb.title":"请求回电","cb.topic":"主题","cb.window":"偏好时段","cb.notes":"备注 可选","cb.card":"银行卡","cb.online":"网银/手机银行","cb.payment":"付款与转账","cb.book":"预约回电"
     }
   }
 };
+
 function t(key){ return i18n.dict[i18n.current][key] || key; }
 function applyI18n(){
   $$('[data-i18n]').forEach(el=>{
     const html = t(el.getAttribute('data-i18n'));
     if (html.includes('<')) el.innerHTML = html; else el.textContent = html;
   });
-  // refresh triage issue list if needed
   if ($('#triageCategory')?.value) $('#triageCategory').dispatchEvent(new Event('change'));
 }
+applyI18n();
 $$('.lang-switch .chip').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     i18n.current = btn.getAttribute('data-lang');
     applyI18n();
   });
 });
-applyI18n();
 
-// ---------- Service status / wait estimator (simulated) ----------
+// ---------------- Service status loads (simulated) ----------------
 function updateLoads(){
   const hotline = Math.max(10, Math.floor(Math.random()*80));
   const branch = Math.max(5, Math.floor(Math.random()*60));
   const waitH = Math.round(hotline/10)+2;
   const waitB = Math.round(branch/6)+8;
-
-  $('#callWaitTag').textContent = `Avg call wait: ${waitH}–${waitH+2} min`;
+  $('#callWaitTag').textContent   = `Avg call wait: ${waitH}–${waitH+2} min`;
   $('#branchWaitTag').textContent = `Nearest branch wait: ~${waitB} min`;
-
   const tag = $('#statusTag');
   const busy = hotline > 60 || branch > 45;
   tag.textContent = busy ? (i18n.current==='zh' ? '使用量高' : 'High demand') : t('status.ok');
   tag.dataset.status = busy ? 'busy' : 'ok';
-  $('#cbWait').textContent = $('#callWaitTag').textContent;
+  $('.svc-dot').style.background = busy ? '#f59e0b' : '#22c55e';
 }
 updateLoads();
 setInterval(updateLoads, 7000);
 
-// ---------- Chat (with localStorage + typing indicator) ----------
-const CHAT_KEY = 'ocbc_chat';
+// ---------------- Chat with typing indicator and memory ----------------
+const CHAT_KEY = 'ocbc_chat_test2';
 const chatBox = $('#chat');
+
 function addBubble(text, who='bot', isHTML=false){
   const d = document.createElement('div');
   d.className = `bubble ${who}`;
@@ -116,43 +115,36 @@ function addBubble(text, who='bot', isHTML=false){
   chatBox.scrollTop = chatBox.scrollHeight;
   return d;
 }
-function saveChat(){
-  localStorage.setItem(CHAT_KEY, chatBox.innerHTML);
-}
+
+function saveChat(){ localStorage.setItem(CHAT_KEY, chatBox.innerHTML); }
 function loadChat(){
   const html = localStorage.getItem(CHAT_KEY);
   if (html) chatBox.innerHTML = html;
-  else addBubble(t('chat.handoff') ? t('chat.handoff') : '', 'bot'); // no-op filler
-  if (!html) {
-    chatBox.innerHTML = '';
-    addBubble(t('chat.title'), 'bot');
-    addBubble(i18n.current==='zh' ? '你好！我可以按步骤引导你或代为完成操作。你需要什么帮助？' :
-      'Hi! I can guide you step-by-step or complete tasks for you. What do you need help with today?','bot');
+  else {
+    addBubble(t('chat.title'),'bot');
+    addBubble(i18n.current==='zh'
+      ? '你好 我可以按步骤引导你或代为完成操作 你需要什么帮助'
+      : 'Hi I can guide you step by step or complete tasks for you What do you need help with today'
+    ,'bot');
   }
 }
 loadChat();
 
 function botReply(q){
-  // simple NLU triggers to open triage
   const lc = q.toLowerCase();
-  if (/(lost|stolen).*card|挂失/.test(lc)) {
-    openTriage('card','lost');
-  } else if (/reset.*password|重置密码/.test(lc)) {
-    openTriage('online','reset');
-  } else if (/overseas.*(card|usage)|海外/.test(lc)) {
-    openTriage('card','overseas');
-  }
+  if (/(lost|stolen).*card|挂失/.test(lc)) { openTriage('card','lost'); }
+  else if (/reset.*password|重置密码/.test(lc)) { openTriage('online','reset'); }
+  else if (/overseas.*(card|usage)|海外/.test(lc)) { openTriage('card','overseas'); }
 
-  // typing indicator
   const tnode = addBubble(i18n.current==='zh' ? '输入中…' : 'Typing…','bot');
   tnode.classList.add('typing');
   setTimeout(()=>{
     tnode.remove();
     addBubble(`Here are steps for "${q}":
       <ol style="margin:6px 0 0 18px">
-        <li>Open <i>Card controls</i>.</li>
-        <li>Choose the relevant card.</li>
-        <li>Toggle the setting and confirm.</li>
+        <li>Open <i>Card controls</i></li>
+        <li>Choose the relevant card</li>
+        <li>Toggle the setting and confirm</li>
       </ol>`, 'bot', true);
     saveChat();
   }, 500);
@@ -161,22 +153,26 @@ function botReply(q){
 $('#askBtn').addEventListener('click', ()=>{
   const v = $('#ask').value.trim();
   if (!v) return;
-  addBubble(v,'user'); saveChat();
-  botReply(v);
+  addBubble(v,'user'); saveChat(); botReply(v);
   $('#ask').value='';
 });
 $$('.chips .chip,[data-q]').forEach(c => c.addEventListener('click', ()=>{
   const q = c.getAttribute('data-q');
   addBubble(q,'user'); saveChat(); botReply(q);
 }));
-
 $('#searchBtn').addEventListener('click', ()=>{
   const v = $('#siteSearch').value.trim();
   if (!v) return;
   addBubble(`Search: ${v}`,'user'); saveChat(); botReply(v);
 });
+['ask','siteSearch'].forEach(id=>{
+  const el = document.getElementById(id);
+  el.addEventListener('keydown', e=>{
+    if (e.key==='Enter'){ e.preventDefault(); if (id==='ask') $('#askBtn').click(); else $('#searchBtn').click(); }
+  });
+});
 
-// ---------- Guided triage ----------
+// ---------------- Guided triage ----------------
 const TRIAGE = {
   card: {
     issues: {
@@ -232,32 +228,32 @@ issueSel.addEventListener('change', () => {
   result.hidden = true;
   if (!val) { extra.textContent = t('triage.waiting'); return; }
   if (catSel.value==='card' && val==='lost') {
-    extra.innerHTML = `<label><input type="checkbox" id="within24"> ${i18n.current==='zh'?'是否在24小时内发生？':'Was this within the last 24 hours?'}</label>`;
+    extra.innerHTML = `<label><input type="checkbox" id="within24"> ${i18n.current==='zh'?'是否在24小时内发生':'Was this within the last 24 hours'}</label>`;
   } else { extra.textContent = t('triage.ready'); }
 });
 
 function recommend({category, issue, detail}){
   let type='Fix Online', text=t('result.title'), suggestions=[], primary={label:'Continue', href:'#'}, alt={label:t('result.alt'), href:'#'};
   if (category==='card' && issue==='lost'){
-    type='Call Now'; text = i18n.current==='zh'?'请立即冻结卡片，并与我们联系以补发新卡。':'Freeze your card immediately and call to block and reissue.';
-    suggestions=['Freeze your card online instantly.','Request a replacement card to your mailing address.'];
-    primary={label:i18n.current==='zh'?'挂失并冻结':'Freeze card (online)', href:'#'};
+    type='Call Now'; text = i18n.current==='zh'?'请立即冻结卡片 并与我们联系以补发新卡':'Freeze your card immediately and call to block and reissue';
+    suggestions=['Freeze your card online instantly','Request a replacement card to your mailing address'];
+    primary={label:i18n.current==='zh'?'挂失并冻结':'Freeze card online', href:'#'};
     alt={label:i18n.current==='zh'?'致电客服':'Call hotline', href:'#'};
   } else if (category==='online' && issue==='reset'){
-    type='Fix Online'; text = i18n.current==='zh'?'可使用数码令牌即时重置密码。':'You can reset your password instantly using your digital token.';
-    suggestions=['Reset via OCBC App.','If token unavailable, use ATM card + PIN.'];
+    type='Fix Online'; text = i18n.current==='zh'?'可使用数码令牌即时重置密码':'You can reset your password instantly using your digital token';
+    suggestions=['Reset via OCBC App','If token unavailable, use ATM card and PIN'];
     primary={label:i18n.current==='zh'?'重置密码':'Reset password', href:'#'};
     alt={label:i18n.current==='zh'?'建立个案':'Create a support case', href:'#'};
   } else if (category==='payment' && issue==='dispute'){
-    type='Create Case'; text = i18n.current==='zh'?'提交争议表格，我们会在3–5个工作日回复。':'Submit a dispute form; we’ll update you within 3–5 working days.';
-    suggestions=['Prepare transaction date, amount, merchant.','We’ll notify you by SMS/email.'];
+    type='Create Case'; text = i18n.current==='zh'?'提交争议表格 我们会在3到5个工作日回复':'Submit a dispute form We will update you within 3 to 5 working days';
+    suggestions=['Prepare transaction date amount and merchant','We will notify you by SMS or email'];
     primary={label:i18n.current==='zh'?'开始争议':'Start dispute', href:'#'};
     alt={label:i18n.current==='zh'?'转接客服':'Chat with an agent', href:'#'};
   } else if (category==='card' && issue==='overseas'){
-    type='Fix Online'; text = i18n.current==='zh'?'在卡片管控中启用海外使用并设置时段/额度。':'Toggle overseas usage in Card controls and set a schedule.';
-    suggestions=['Set a daily limit for extra safety.','Enable travel alerts.'];
+    type='Fix Online'; text = i18n.current==='zh'?'在卡片管控中启用海外使用并设置时段额度':'Toggle overseas usage in Card controls and set a schedule';
+    suggestions=['Set a daily limit for extra safety','Enable travel alerts'];
     primary={label:i18n.current==='zh'?'打开卡片管控':'Open card controls', href:'#'};
-    alt={label:i18n.current==='zh'?'查看指南':'See how-to guide', href:'#'};
+    alt={label:i18n.current==='zh'?'查看指南':'See how to guide', href:'#'};
   }
   return {type, text, suggestions, primary, alt};
 }
@@ -283,20 +279,20 @@ function recommend({category, issue, detail}){
   });
 });
 
-// Open triage when popular topics clicked
+// Popular topics trigger triage
 $$('.topic').forEach(tk => tk.addEventListener('click', ()=>{
   const q = tk.getAttribute('data-q');
   addBubble(q,'user'); botReply(q);
 }));
 
-// ---------- Quick actions ----------
+// Quick actions
 $$('.qa .tile').forEach(tile=>tile.addEventListener('click', ()=>{
   const a = tile.getAttribute('data-action');
   if (a==='callback') $('#openCallback').click();
-  else alert(`(Prototype) Launching ${a} flow…`);
+  else alert(`(Prototype) Launching ${a} flow`);
 }));
 
-// ---------- Callback modal ----------
+// Callback modal
 const modal = $('#callbackModal');
 $('#openCallback').addEventListener('click', ()=> modal.setAttribute('aria-hidden','false'));
 $('#closeCallback').addEventListener('click', ()=> modal.setAttribute('aria-hidden','true'));
@@ -305,13 +301,8 @@ $('#bookCallback').addEventListener('click', ()=>{
   alert(`(Prototype) Callback booked — ${$('#cbTopic').value} • ${$('#cbWindow').value}`);
 });
 
-// ---------- Accessibility: Enter to submit ----------
-['ask','siteSearch'].forEach(id=>{
-  const input = document.getElementById(id);
-  input.addEventListener('keydown', e=>{
-    if (e.key==='Enter'){
-      e.preventDefault();
-      if (id==='ask') $('#askBtn').click(); else $('#searchBtn').click();
-    }
-  });
+// Floating chatbot button
+$('#chatFab')?.addEventListener('click', () => {
+  document.getElementById('assistant').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(()=> $('#ask')?.focus(), 500);
 });
