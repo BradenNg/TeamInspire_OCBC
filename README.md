@@ -129,5 +129,3 @@ npm install
 ***
 
 ## License
-
-MIT (add your preferred license details here)
