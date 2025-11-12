@@ -1,5 +1,5 @@
 {
-  "name": "tempProject",
+  "name": "PhoneIVR",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -14,8 +14,7 @@
     "react": "19.1.1",
     "react-native": "0.82.1",
     "react-native-safe-area-context": "^5.5.2",
-    "react-native-tts": "^4.1.1",
-    "react-navigation": "^5.0.0"
+    "react-native-tts": "^4.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

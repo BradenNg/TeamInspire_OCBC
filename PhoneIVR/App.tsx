@@ -14,37 +14,19 @@ const IVR_MENU: { [key in MenuKey]: MenuItem } = {
     prompt: 'Welcome to OCBC! Press 1 for Account Balance, 2 for Branch Hours, 3 for Card Services.',
     next: { '1': 'BALANCE', '2': 'HOURS', '3': 'CARD' }
   },
-  BALANCE: {
-    prompt: 'Your account balance is $XXXX.',
-    next: {}
-  },
-  HOURS: {
-    prompt: 'Our branches are open Monday–Friday, 9am–5pm.',
-    next: {}
-  },
-  CARD: {
-    prompt: 'For Card Replacement, press 1. For Card Activation, press 2.',
-    next: { '1': 'CARD_REPLACE', '2': 'CARD_ACTIVATE' }
-  },
-  CARD_REPLACE: {
-    prompt: 'Your card replacement request is being processed.',
-    next: {}
-  },
-  CARD_ACTIVATE: {
-    prompt: 'Your card is now activated. Thank you!',
-    next: {}
-  }
+  BALANCE: { prompt: 'Your account balance is $XXXX.', next: {} },
+  HOURS: { prompt: 'Our branches are open Monday–Friday, 9am–5pm.', next: {} },
+  CARD: { prompt: 'For Card Replacement, press 1. For Card Activation, press 2.', next: { '1': 'CARD_REPLACE', '2': 'CARD_ACTIVATE' } },
+  CARD_REPLACE: { prompt: 'Your card replacement request is being processed.', next: {} },
+  CARD_ACTIVATE: { prompt: 'Your card is now activated. Thank you!', next: {} }
 };
 
-function App() {
+export default function App() {
   const [menuKey, setMenuKey] = useState<MenuKey>('');
   const [history, setHistory] = useState<MenuKey[]>(['']);
-
   const currentMenu = IVR_MENU[menuKey];
 
-  useEffect(() => {
-    Tts.speak(currentMenu.prompt);
-  }, [currentMenu.prompt]);
+  useEffect(() => { Tts.speak(currentMenu.prompt); }, [currentMenu.prompt]);
 
   const handleInput = (num: string) => {
     const nextKey = currentMenu.next[num];
@@ -71,5 +53,3 @@ const styles = StyleSheet.create({
   prompt: { fontSize: 18, marginBottom: 20 },
   numpad: { flexDirection: 'row', justifyContent: 'center' }
 });
-
-export default App;

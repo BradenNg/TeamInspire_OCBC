@@ -1,48 +1,66 @@
-# Node modules
+# Node.js dependencies
 node_modules/
-
-# Logs
-npm-debug.log*
+npm-debug.*
+yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Metro bundler cache
-.metro/
+# Output of 'react-native bundle'
+*.bundle
 
-# Babel cache
-.babelrc
-babel.config.js
+# TypeScript cache
+*.tsbuildinfo
 
-# iOS build files
-ios/Pods/
-ios/Podfile.lock
-ios/build/
-ios/DerivedData/
-*.xcworkspace
+# Expo
+.expo/
+.expo-shared/
 
-# Android build files
-android/build/
+# Metro
+.cache/
+react-native-packager-cache-*/
+metro-cache-*/
+
+# Android/IntelliJ
+android/.gradle/
 android/app/build/
-*.keystore
+android/build/
+android/local.properties
+android/.idea/
+android/.cxx/
+android/.DS_Store
+android/.iml
 
-# Editor configs
-.idea/
-.vscode/
-*.sublime-workspace
-*.sublime-project
+# Gradle
+android/gradle/
+android/.gradle/
+android/gradlew
+android/gradlew.bat
 
-# Operating System files
+# iOS/Xcode
+ios/build/
+ios/Pods/
+ios/.xcworkspacedata
+ios/*.xcodeproj/*
+ios/*.xcworkspace/*
+ios/Podfile.lock
+ios/.DS_Store
+
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
-*.swp
-*.lock
+ehthumbs.db
+Desktop.ini
 
-# Environment files
-.env
-.env.*
+# VS Code
+.vscode/
 
-# Coverage reports
+# JetBrains IDE configs
+.idea/
+
+# Coverage Reports
 coverage/
+*.lcov
 
-# Miscellaneous
-*.log
-*.tmp
+# Environment files and secrets
