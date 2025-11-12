@@ -1,0 +1,66 @@
+# Node.js dependencies
+node_modules/
+npm-debug.*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Output of 'react-native bundle'
+*.bundle
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Expo
+.expo/
+.expo-shared/
+
+# Metro
+.cache/
+react-native-packager-cache-*/
+metro-cache-*/
+
+# Android/IntelliJ
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/.idea/
+android/.cxx/
+android/.DS_Store
+android/.iml
+
+# Gradle
+android/gradle/
+android/.gradle/
+android/gradlew
+android/gradlew.bat
+
+# iOS/Xcode
+ios/build/
+ios/Pods/
+ios/.xcworkspacedata
+ios/*.xcodeproj/*
+ios/*.xcworkspace/*
+ios/Podfile.lock
+ios/.DS_Store
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# JetBrains IDE configs
+.idea/
+
+# Coverage Reports
+coverage/
+*.lcov
+
+# Environment files and secrets
