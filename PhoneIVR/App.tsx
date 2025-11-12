@@ -1,53 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+import Tts from 'react-native-tts';
 
-const IVR_MENU = {
+type MenuKey = '' | 'BALANCE' | 'HOURS' | 'CARD' | 'CARD_REPLACE' | 'CARD_ACTIVATE';
+
+interface MenuItem {
+  prompt: string;
+  next: { [key: string]: MenuKey };
+}
+
+const IVR_MENU: { [key in MenuKey]: MenuItem } = {
   '': {
     prompt: 'Welcome to OCBC! Press 1 for Account Balance, 2 for Branch Hours, 3 for Card Services.',
     next: { '1': 'BALANCE', '2': 'HOURS', '3': 'CARD' }
   },
-  'BALANCE': {
+  BALANCE: {
     prompt: 'Your account balance is $XXXX.',
     next: {}
   },
-  'HOURS': {
+  HOURS: {
     prompt: 'Our branches are open Monday–Friday, 9am–5pm.',
     next: {}
   },
-  'CARD': {
+  CARD: {
     prompt: 'For Card Replacement, press 1. For Card Activation, press 2.',
     next: { '1': 'CARD_REPLACE', '2': 'CARD_ACTIVATE' }
   },
-  'CARD_REPLACE': {
+  CARD_REPLACE: {
     prompt: 'Your card replacement request is being processed.',
     next: {}
   },
-  'CARD_ACTIVATE': {
+  CARD_ACTIVATE: {
     prompt: 'Your card is now activated. Thank you!',
     next: {}
   }
 };
 
 function App() {
-  const [menuKey, setMenuKey] = useState('');
-  const [history, setHistory] = useState(['']);
-  
-  const handleInput = (num) => {
-    const current = IVR_MENU[menuKey];
-    const nextKey = current.next[num];
+  const [menuKey, setMenuKey] = useState<MenuKey>('');
+  const [history, setHistory] = useState<MenuKey[]>(['']);
+
+  const currentMenu = IVR_MENU[menuKey];
+
+  useEffect(() => {
+    Tts.speak(currentMenu.prompt);
+  }, [currentMenu.prompt]);
+
+  const handleInput = (num: string) => {
+    const nextKey = currentMenu.next[num];
     if (nextKey) {
       setMenuKey(nextKey);
       setHistory([...history, nextKey]);
     }
   };
-  
-  const currentMenu = IVR_MENU[menuKey];
 
   return (
     <View style={styles.container}>
       <Text style={styles.prompt}>{currentMenu.prompt}</Text>
       <View style={styles.numpad}>
-        {/* Render buttons dynamically based on current menu's next options */}
         {Object.keys(currentMenu.next).map(key => (
           <Button key={key} title={key} onPress={() => handleInput(key)} />
         ))}
