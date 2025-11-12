@@ -1,0 +1,48 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+
+# Metro bundler cache
+.metro/
+
+# Babel cache
+.babelrc
+babel.config.js
+
+# iOS build files
+ios/Pods/
+ios/Podfile.lock
+ios/build/
+ios/DerivedData/
+*.xcworkspace
+
+# Android build files
+android/build/
+android/app/build/
+*.keystore
+
+# Editor configs
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Operating System files
+.DS_Store
+Thumbs.db
+*.swp
+*.lock
+
+# Environment files
+.env
+.env.*
+
+# Coverage reports
+coverage/
+
+# Miscellaneous
+*.log
+*.tmp
