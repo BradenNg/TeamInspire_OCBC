@@ -38,6 +38,22 @@ body {
   transition: background .25s ease, color .25s ease;
 }
 
+/* Login page layout helpers */
+.page-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-login {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+.login-card { width: 100%; max-width: 480px; }
+.footer { flex-shrink: 0; }
+
 a { color: inherit; }
 .container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
