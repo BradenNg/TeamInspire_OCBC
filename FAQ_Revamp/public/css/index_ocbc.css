@@ -19,9 +19,9 @@
   --ink: #e5e7eb;
   --muted: #94a3b8;
 
-  --bg: #0b1020;
-  --panel: #0f162e;
-  --panel-2: #0b1429;
+  --bg: #222426;
+  --panel: #2c2c2c;
+  --panel-2: #1b1b1b;
 
   --ring: #1e293b;
   --elev: 0 10px 25px rgba(0, 0, 0, .45);
@@ -151,7 +151,7 @@ a { color: inherit; }
   backdrop-filter: saturate(180%) blur(8px);
   border-bottom: 1px solid var(--ring);
 }
-:root[data-theme="dark"] .header { background: rgba(11, 16, 32, .85); }
+:root[data-theme="dark"] .header { background: #222426; }
 
 .bar {
   display: flex;
@@ -286,7 +286,7 @@ a { color: inherit; }
   height: 74px;
   background: linear-gradient(
     180deg,
-    rgba(204, 176, 178, 0.18) 0%,
+    rgba(230, 0, 18, .18) 0%,
     rgba(230, 0, 18, .08) 55%,
     rgba(230, 0, 18, 0) 100%
   );
@@ -422,7 +422,7 @@ a { color: inherit; }
 .bubble.user { align-self: flex-end; background: #111827; color: #fff; }
 :root[data-theme="dark"] .bubble.user { background: #0b1326; }
 .bubble.bot { align-self: flex-start; background: #f1f5f9; }
-:root[data-theme="dark"] .bubble.bot { background: #101a32; }
+:root[data-theme="dark"] .bubble.bot { background: #1b1b1b; }
 .typing { opacity: .8; font-style: italic; }
 
 /* ========== Triage ========== */
@@ -482,7 +482,7 @@ textarea {
 .faq .content { padding: 0 16px 14px; color: var(--muted); }
 
 /* ========== Footer ========== */
-.footer { margin-top: 24px; background: #0b1020; color: #cbd5e1; }
+.footer { margin-top: 24px; background: #1b1b1b; color: #cbd5e1; }
 .footer .container { display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; }
 
 /* ========== Modal ========== */
