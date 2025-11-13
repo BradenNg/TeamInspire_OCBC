@@ -1,0 +1,176 @@
+/*.robot-message{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    margin-bottom: 10px;*/
+/*    justify-content: flex-start;*/
+
+/*    gap: 10px;*/
+
+
+/*}*/
+/*.user-message{*/
+/*    display: flex;*/
+
+/*    align-items: center;*/
+/*    justify-content: flex-end;*/
+/*    margin-bottom: 10px;*/
+
+
+/*    gap: 10px;*/
+/*}*/
+/*.message-text{*/
+/*    background-color: #f0f0f0;*/
+/*    padding: 10px;*/
+/*    border-radius: 10px;*/
+/*    max-width: 70%;*/
+/*    word-wrap: break-word;*/
+/*}*/
+/*.chat-message-profile{*/
+/*    width: 50px;*/
+/*}*/
+
+/*.chat-message-loading{*/
+/*    height:40px;*/
+/*    margin: -8px;*/
+/*    padding-top: 5px;*/
+
+/*    !*margin:-25px;*!*/
+/*}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container for the robot message bubble */
+.robot-message {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+/* Container for the user message bubble */
+.user-message {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.chat-message-profile {
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    /* Order adjustment for user/robot alignment */
+    order: 0;
+
+}
+
+/* The text container */
+.message-text {
+    max-width: 80%;
+    padding: 10px 20px;
+    border-radius: 18px;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* Specific styles for the robot's message content */
+.robot-message .message-text {
+    background-color: #e6e6e6; /* Light gray bubble for robot */
+
+    color: #333;
+    border-top-left-radius: 5px; /* Flatten corner near profile image */
+    padding-top: 0;
+}
+
+/* Specific styles for the user's message content */
+.user-message .message-text {
+    background-color: #e6e6e6; /* Light gray bubble for robot */
+
+    color: black;
+    border-top-right-radius: 5px; /* Flatten corner near profile image */
+    order: -1; /* Move text container to the left of the user image */
+    padding: 18px;
+    margin-right: 10px;
+}
+
+/* --- Markdown-specific styles for the Robot's Message --- */
+
+.robot-message .message-text h1,
+.robot-message .message-text h2,
+.robot-message .message-text h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.robot-message .message-text p {
+    margin-bottom: 10px;
+}
+
+.robot-message .message-text ul,
+.robot-message .message-text ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+/* Table styling (GitHub Flavored Markdown) */
+.robot-message .message-text table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.robot-message .message-text th,
+.robot-message .message-text td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.robot-message .message-text th {
+    background-color: #f2f2f2;
+}
+
+/* Code block styling */
+.robot-message .message-text pre {
+    background-color: #282c34;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.9em;
+}
+
+.robot-message .message-text code {
+    background-color: #eee; /* Inline code background */
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.robot-message .message-text pre code {
+    background-color: transparent; /* Override for code inside pre */
+    padding: 0;
+}
+
+/* Blockquote styling */
+.robot-message .message-text blockquote {
+    border-left: 4px solid #ccc;
+    margin: 10px 0;
+    padding-left: 10px;
+    color: #666;
+}
