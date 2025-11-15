@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useState, useEffect} from 'react'
 import './ChatInput.css'
 import loadingSpinner from '../assets/loading-spinner.gif'
 import sendMessageIcon from '../assets/send_1.svg'
@@ -10,6 +10,10 @@ export function ChatbotInput ({ chatMessages, setChatMessages}){
     const [inputText, setInputText] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
+    useEffect(()=>{
+        localStorage.setItem("chatMessages", JSON.stringify(chatMessages));
+    },[chatMessages])
+
 
     function saveInputText(event){
         setInputText(event.target.value);
@@ -17,7 +21,7 @@ export function ChatbotInput ({ chatMessages, setChatMessages}){
 
     async function sendMessage() {
 
-        if(inputText === "" || isLoading){
+        if(!inputText.trim() || isLoading){
             return;
         }
 
